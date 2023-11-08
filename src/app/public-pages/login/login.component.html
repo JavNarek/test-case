@@ -1,1 +1,12 @@
-<p>profile works!</p>
+<form [formGroup]="loginForm">
+  <label for="email">Email:</label>
+  <input id="email" class="input" type="text" formControlName="email" />
+
+  <label for="password">Password:</label>
+  <input
+    id="password"
+    class="input"
+    type="password"
+    formControlName="password"
+  />
+</form>

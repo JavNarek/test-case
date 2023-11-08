@@ -1,1 +1,37 @@
 /* You can add global styles to this file, and also import other style files */
+@import './styles/colors';
+@import './styles/typography';
+
+.error-popup {
+  position: absolute;
+  background-color: $warning;
+  color: $bg-primary;
+  border-radius: 5px;
+  padding: 5px;
+  box-shadow: 2px 2px 5px $box-shadow;
+  z-index: 100;
+  top: 0;
+  right: 100%;
+  margin-top: -10px;
+  display: none;
+}
+
+input {
+  border: 1px solid $color-secondary;
+  padding: 5px;
+  transition: border 0.3s, box-shadow 0.3s;
+  border-radius: 5px;
+  width: 300px;
+  height: 30px;
+  font-size: 14px;
+}
+
+label {
+  font-weight: bold;
+  margin-right: 10px;
+}
+
+body {
+  color:$color-primary;
+  background-color: $bg-primary ;
+}
