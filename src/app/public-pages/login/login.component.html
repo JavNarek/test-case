@@ -1,12 +1,31 @@
-<form [formGroup]="loginForm">
-  <label for="email">Email:</label>
-  <input id="email" class="input" type="text" formControlName="email" />
-
-  <label for="password">Password:</label>
-  <input
-    id="password"
-    class="input"
-    type="password"
-    formControlName="password"
-  />
+<form class="form" [formGroup]="loginForm">
+  <div class="form--item">
+    <label for="email">Email:</label>
+    <input
+      appInputValidation
+      [appValidation]="EMAIL.ERROR_MESSAGE"
+      id="email"
+      class="input"
+      type="text"
+      formControlName="email"
+    />
+  </div>
+  <div class="form--item">
+    <label for="password">Password:</label>
+    <input
+      appInputValidation
+      [appValidation]="PASSWORD.ERROR_MESSAGE"
+      id="password"
+      class="input"
+      type="password"
+      formControlName="password"
+    />
+  </div>
+  <button
+    class="outline-button"
+    [disabled]="loginForm.invalid || loginForm.pristine"
+    (click)="onSubmit()"
+  >
+    Submit
+  </button>
 </form>

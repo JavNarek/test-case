@@ -5,6 +5,7 @@ import {
   Input,
   Renderer2,
 } from '@angular/core';
+import { NgControl } from '@angular/forms';
 
 @Directive({
   selector: '[appInputValidation]',
@@ -13,24 +14,31 @@ export class InputValidationDirective {
   @Input('appValidation') errorMessage!: string;
   private errorPopup!: HTMLDivElement;
 
-  constructor(private el: ElementRef, private renderer: Renderer2) {}
+  constructor(
+    private el: ElementRef,
+    private renderer: Renderer2,
+    private ngControl: NgControl
+  ) {}
 
   ngOnInit() {
     this.errorPopup = document.createElement('div');
     this.errorPopup.className = 'error-popup';
     this.errorPopup.textContent = this.errorMessage;
-    this.renderer.setStyle(this.errorPopup, 'display', 'none');
-    this.renderer.appendChild(this.el.nativeElement, this.errorPopup);
+    this.renderer.appendChild(
+      this.el.nativeElement.parentElement,
+      this.errorPopup
+    );
   }
 
-  @HostListener('blur') onBlur() {
-    if (
-      this.el.nativeElement.validity &&
-      !this.el.nativeElement.validity.valid
-    ) {
-      this.renderer.setStyle(this.errorPopup, 'display', 'block');
+  @HostListener('keyup') onKeyUp() {
+    this.handleValidation();
+  }
+
+  handleValidation() {
+    if (this.ngControl.invalid) {
+      this.renderer.setStyle(this.errorPopup, 'visibility', 'visible');
     } else {
-      this.renderer.setStyle(this.errorPopup, 'display', 'none');
+      this.renderer.setStyle(this.errorPopup, 'visibility', 'hidden');
     }
   }
 }

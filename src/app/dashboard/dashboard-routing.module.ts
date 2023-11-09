@@ -28,6 +28,11 @@ const routes: Routes = [
       title: 'Profile',
     },
   },
+  {
+    path: '',
+    pathMatch: 'full',
+    redirectTo: 'home',
+  },
 ];
 
 @NgModule({
