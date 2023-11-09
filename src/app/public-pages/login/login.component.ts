@@ -7,9 +7,8 @@ import { StorageService } from '../../core/services/storage.service';
 import { filter } from 'rxjs';
 import { Router } from '@angular/router';
 import { User } from 'src/app/core/models/user.model';
-import { UserWithRole } from '../../core/models/user.model';
 import { UserVM } from 'src/app/core/interfaces/user-view-model.interface';
-
+import { ToastrService } from 'ngx-toastr';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -23,7 +22,8 @@ export class LoginComponent implements OnInit {
     private formBuilder: FormBuilder,
     private authService: AuthService,
     private storageService: StorageService,
-    private router: Router
+    private router: Router,
+    private toastr: ToastrService
   ) {
     this.loginForm = this.formBuilder.group({
       email: [
@@ -45,7 +45,9 @@ export class LoginComponent implements OnInit {
     });
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.toastr.success('Hello world!', 'Toastr fun!');
+  }
 
   onSubmit(): void {
     if (this.loginForm.invalid) {
