@@ -21,7 +21,7 @@ export class AuthService {
       return of({ token: TOKEN, user: this._user });
     } else {
       // Simulate incorrect login
-      return throwError(() => new Error('Error'));
+      return throwError(() => new Error('Wrong username or password'));
     }
   }
 

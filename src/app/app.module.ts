@@ -12,7 +12,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    ToastrModule.forRoot(),
+    ToastrModule.forRoot({ timeOut: 30 * 1000, closeButton: true }),
   ],
   providers: [AuthGuard],
   bootstrap: [AppComponent],

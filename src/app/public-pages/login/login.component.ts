@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ValidationConfig } from 'src/app/core/configs/validation.config';
 import { UserLoginModel } from 'src/app/core/models/auth.model';
@@ -14,7 +14,7 @@ import { ToastrService } from 'ngx-toastr';
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss'],
 })
-export class LoginComponent implements OnInit {
+export class LoginComponent {
   loginForm!: FormGroup;
   readonly EMAIL = ValidationConfig.EMAIL;
   readonly PASSWORD = ValidationConfig.PASSWORD;
@@ -45,10 +45,6 @@ export class LoginComponent implements OnInit {
     });
   }
 
-  ngOnInit(): void {
-    this.toastr.success('Hello world!', 'Toastr fun!');
-  }
-
   onSubmit(): void {
     if (this.loginForm.invalid) {
       return;
@@ -60,7 +56,7 @@ export class LoginComponent implements OnInit {
       .pipe(filter(({ token }) => !!token))
       .subscribe({
         next: ({ token, user }) => this.onLoginSuccess(token, user),
-        error: (err) => console.log(err),
+        error: (err) => this.toastr.error(err, 'Error'),
       });
   }
 
@@ -68,6 +64,7 @@ export class LoginComponent implements OnInit {
     const UserWithRole = new UserVM(user).userWithRole;
     this.storageService.setItem('token', token);
     this.storageService.setItem('user', UserWithRole, true);
+    this.toastr.success('You successfully logged in', 'Sucsess');
     this.router.navigate(['home']);
   }
 }
