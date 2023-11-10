@@ -11,7 +11,21 @@ export class UserVM {
     };
   }
 
+  get user(): User {
+    return {
+      ...this._user,
+    };
+  }
+
   constructor(user: User) {
     this._user = user;
+  }
+
+  removeExtFromNumber(ext: string) {
+    this._user.phone = this._user.phone.replace(ext, '');
+  }
+
+  addExtToNumber(ext: string) {
+    this._user.phone = ext + this._user.phone;
   }
 }

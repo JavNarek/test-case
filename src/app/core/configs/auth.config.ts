@@ -7,6 +7,6 @@ export const USER = {
   email: EMAIL,
   firstName: 'John',
   lastName: 'Wick',
-  phoneNumber: '+7666666',
+  phone: '+7666666',
   webSiteURL: 'babayaga.com',
 };

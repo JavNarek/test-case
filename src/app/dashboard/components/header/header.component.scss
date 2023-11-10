@@ -1,4 +1,29 @@
-.header{
-  width:100%;
-  height: 100px;
+header {
+  background-color: #333;
+  color: #fff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+
+
+  .user-info {
+    display: flex;
+    align-items: center;
+  }
+
+  .user-info span {
+    margin-right: 10px;
+    font-weight: bold;
+  }
+
+  .user-info a,
+  .logout a {
+    text-decoration: none;
+    color: #fff;
+    margin-right: 15px;
+  }
+  .white-icon {
+    fill: #fff; /* Set the fill color to white */
+  }
 }

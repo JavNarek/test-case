@@ -11,4 +11,25 @@ export class ValidationConfig {
     ERROR_MESSAGE:
       'Requires at least one uppercase letter, one lowercase letter, one digit, and a minimum length of 8 characters.',
   };
+
+  static readonly FIRST_NAME = {
+    LENGTH: 255,
+    ERROR_MESSAGE: 'Firstname is invalid',
+  };
+
+  static readonly LAST_NAME = {
+    LENGTH: 255,
+    ERROR_MESSAGE: 'Lastname is invalid',
+  };
+
+  static readonly PHONE_NUMBER = {
+    LENGTH: 10,
+    ERROR_MESSAGE: 'Phone is invalid',
+    EXTENSION: '+7',
+  };
+
+  static readonly WEBSITE = {
+    PATTERN: /\b\.\b/,
+    ERROR_MESSAGE: 'Website is invalid',
+  };
 }

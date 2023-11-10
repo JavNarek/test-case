@@ -27,7 +27,7 @@ export class LoginComponent {
   ) {
     this.loginForm = this.formBuilder.group({
       email: [
-        'test@mail.ru',
+        '',
         [
           Validators.required,
           Validators.pattern(this.EMAIL.PATTERN),
@@ -35,7 +35,7 @@ export class LoginComponent {
         ],
       ],
       password: [
-        'Aa12345678!',
+        '',
         [
           Validators.pattern(this.PASSWORD.PATTERN.source),
           Validators.maxLength(this.PASSWORD.LENGTH),

@@ -1,1 +1,34 @@
-<div class="header"></div>
+<header>
+  <div *ngIf="currentUser$ | async as user" class="user-info">
+    <span>{{ user.firstName }} {{ user.lastName }}</span>
+    <a href="/profile">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="24"
+        height="24"
+        class="white-icon"
+        viewBox="0 0 24 24"
+      >
+        <path
+          d="M12 2c2.76 0 5 2.24 5 5s-2.24 5-5 5-5-2.24-5-5 2.24-5 5-5zm0 12c3.87 0 7 3.13 7 7h-14c0-3.87 3.13-7 7-7z"
+        />
+      </svg>
+    </a>
+  </div>
+  <div class="logout">
+    <a href="#" (click)="logout()">
+      Logout
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="24"
+        height="24"
+        class="white-icon"
+        viewBox="0 0 24 24"
+      >
+        <path
+          d="M17 3.5c0-.83-.67-1.5-1.5-1.5h-7C7.67 2 7 2.67 7 3.5V5H5c-.83 0-1.5.67-1.5 1.5v14c0 .83.67 1.5 1.5 1.5h2V19H5v-1.5h12V19h-2v3.5h2c.83 0 1.5-.67 1.5-1.5v-14c0-.83-.67-1.5-1.5-1.5h-2V5h2V3.5zm-3 11l4-4-4-4v3h-5v2h5v3z"
+        />
+      </svg>
+    </a>
+  </div>
+</header>

@@ -5,8 +5,10 @@ import { ProfileRoutingModule } from './profile-routing.module';
 import { PageTitleModule } from 'src/app/components/page-title/page-title.module';
 import {
   InputDirectiveModule,
+  InputPrefixDirectiveModule,
   InputValidationDirectiveModule,
 } from 'src/app/core/directives/directives.module';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [ProfileComponent],
@@ -16,6 +18,8 @@ import {
     PageTitleModule,
     InputDirectiveModule,
     InputValidationDirectiveModule,
+    InputPrefixDirectiveModule,
+    ReactiveFormsModule,
   ],
 })
 export class ProfileModule {}

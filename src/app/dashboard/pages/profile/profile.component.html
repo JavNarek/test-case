@@ -1,1 +1,66 @@
 <app-page-title [title]="title"></app-page-title>
+<form class="form" [formGroup]="profileForm">
+  <div class="form--item">
+    <label for="email">Email:</label>
+    <input
+      appInputValidation
+      [appValidation]="EMAIL.ERROR_MESSAGE"
+      id="email"
+      class="input"
+      type="text"
+      formControlName="email"
+    />
+  </div>
+  <div class="form--item">
+    <label for="firstname">Firstname:</label>
+    <input
+      appInputValidation
+      [appValidation]="FIRST_NAME.ERROR_MESSAGE"
+      id="firstname"
+      class="input"
+      type="text"
+      formControlName="firstName"
+    />
+  </div>
+  <div class="form--item">
+    <label for="lastname">Lastname:</label>
+    <input
+      appInputValidation
+      [appValidation]="LAST_NAME.ERROR_MESSAGE"
+      id="lastname"
+      class="input"
+      type="text"
+      formControlName="lastName"
+    />
+  </div>
+  <div class="form--item">
+    <label for="phone">Phone:</label>
+    <input
+      [prefix]="PHONE_NUMBER.EXTENSION"
+      appInputValidation
+      [appValidation]="PHONE_NUMBER.ERROR_MESSAGE"
+      id="phone"
+      class="input"
+      type="phone"
+      formControlName="phone"
+    />
+  </div>
+  <div class="form--item">
+    <label for="webSiteURL">Website:</label>
+    <input
+      appInputValidation
+      [appValidation]="WEBSITE.ERROR_MESSAGE"
+      id="webSiteURL"
+      class="input"
+      type="text"
+      formControlName="webSiteURL"
+    />
+  </div>
+  <button
+    class="outline-button"
+    [disabled]="profileForm.invalid || profileForm.pristine"
+    (click)="onSubmit()"
+  >
+    Submit
+  </button>
+</form>

@@ -1,3 +1,7 @@
+# Log In
+
+email: test@mail.ru
+password: Aa12345678!
 # TestCase
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.2.4.
